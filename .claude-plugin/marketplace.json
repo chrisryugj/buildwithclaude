@@ -25,6 +25,31 @@
   },
   "plugins": [
     {
+      "name": "mobile-debug-tools",
+      "description": "Inspect and interact with Android and iOS apps through the mobile-debug-mcp server and a usage skill.",
+      "version": "0.0.1",
+      "author": {
+        "name": "mobile-debug-tools contributors",
+        "url": "https://github.com/clivejefferies"
+      },
+      "repository": "https://github.com/clivejefferies/mobile-debug-tools",
+      "license": "Apache-2.0",
+      "keywords": [
+        "android",
+        "ios",
+        "mobile-debugging",
+        "mcp",
+        "claude-code"
+      ],
+      "category": "development",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/clivejefferies/mobile-debug-tools.git",
+        "path": "agent-plugin",
+        "ref": "main"
+      }
+    },
+    {
       "name": "pine",
       "description": "Connect Claude to Pine AI to handle real-world tasks and follow up on progress and results.",
       "version": "0.1.1",
@@ -298,7 +323,7 @@
     {
       "name": "archcore",
       "description": "Spec-driven development and context engineering for AI coding agents, backed by project context in Git.",
-      "version": "0.10.3",
+      "version": "0.12.0",
       "author": {
         "name": "Archcore",
         "url": "https://github.com/archcore-ai"
@@ -2985,8 +3010,321 @@
     }
   },
   {
+    "name": "auten",
+    "description": "Computer use for Claude Code: click, type and read the screen on your Mac, Windows or Linux computer and your Android phone over USB (beta), even in apps with no API. Reads the accessibility tree, types saved passwords locally, and asks before anything irreversible. Free plan 30 minutes of runtime a month.",
+    "version": "0.1.5",
+    "author": {
+      "name": "Auten",
+      "url": "https://auten.ai"
+    },
+    "homepage": "https://auten.ai/mcp",
+    "repository": "https://github.com/auten-ai/auten-mcp",
+    "license": "MIT",
+    "keywords": [
+      "computer-use",
+      "desktop-automation",
+      "android",
+      "accessibility",
+      "rpa",
+      "mcp"
+    ],
+    "category": "productivity",
+    "source": {
+      "source": "git-subdir",
+      "url": "https://github.com/auten-ai/auten-mcp.git",
+      "path": "plugin",
+      "sha": "537d8e3d1df29f0edeba8fceff49865092036306"
+    }
+  },
+  {
+    "name": "memory-loop",
+    "description": "A lifecycle for Claude Code native file-based memory: a save gate that gives each memory a tier and an expiry, a sweep that archives expired memories instead of deleting them, a consolidation pass that merges duplicates and resolves contradictions only after you confirm, and a correction-signal hook that feeds an always-loaded HABITS.md capped at 8000 bytes / 24 rules, enforced at write time. Local-only.",
+    "version": "2.3.1",
+    "author": {
+      "name": "choiyounggi",
+      "url": "https://github.com/choiyounggi"
+    },
+    "homepage": "https://github.com/choiyounggi/groundwork/tree/main/plugins/memory-loop",
+    "repository": "https://github.com/choiyounggi/groundwork",
+    "license": "MIT",
+    "keywords": [
+      "memory",
+      "lifecycle",
+      "habits",
+      "consolidation",
+      "expiry",
+      "corrections",
+      "claude-md"
+    ],
+    "category": "productivity",
+    "source": {
+      "source": "git-subdir",
+      "url": "https://github.com/choiyounggi/groundwork.git",
+      "path": "plugins/memory-loop",
+      "ref": "main"
+    }
+  },
+  {
+    "name": "lnpl",
+    "description": "Authoring and verification for LNPL, the language of the linkly LLM-native platform (declare entities, services and workflows; the compiler lowers them to a semantic IR that runs on an interpreter or compiles through MLIR to a native binary). LNPL's verb vocabulary is closed and absent from model training data, so a plausible word compiles into a step that silently does nothing. The plugin routes Claude to the lexicon generated from the compiler's own tables, surfaces lnpl compile diagnostics on every save, offers an independent reviewer subagent, derives spec cases, and gates completion on evidence.",
+    "version": "0.8.0",
+    "author": {
+      "name": "choiyounggi",
+      "url": "https://github.com/choiyounggi"
+    },
+    "homepage": "https://github.com/choiyounggi/linkly",
+    "repository": "https://github.com/choiyounggi/linkly",
+    "license": "MIT",
+    "keywords": [
+      "lnpl",
+      "linkly",
+      "llm-native",
+      "programming-language",
+      "compiler",
+      "diagnostics",
+      "mlir",
+      "semantic-ir"
+    ],
+    "category": "development",
+    "source": {
+      "source": "git-subdir",
+      "url": "https://github.com/choiyounggi/linkly.git",
+      "path": "plugins/lnpl",
+      "ref": "main"
+    }
+  },
+  {
+    "name": "ngx-json-render",
+    "description": "Two skills for generative UI in Angular with ngx-json-render, the Angular renderer for Vercel's json-render: define a component catalog and registry, render model-written JSON specs with <json-render>, stream them with signals, check specs and test components, and use the ready Angular Material catalog.",
+    "version": "0.9.1",
+    "author": {
+      "name": "shteynu",
+      "url": "https://github.com/shteynu"
+    },
+    "homepage": "https://github.com/shteynu/ngx-json-render/tree/main/plugins/ngx-json-render",
+    "repository": "https://github.com/shteynu/ngx-json-render",
+    "license": "Apache-2.0",
+    "keywords": [
+      "angular",
+      "json-render",
+      "generative-ui",
+      "signals",
+      "angular-material",
+      "llm-ui"
+    ],
+    "category": "development",
+    "source": {
+      "source": "git-subdir",
+      "url": "https://github.com/shteynu/ngx-json-render.git",
+      "path": "plugins/ngx-json-render",
+      "ref": "main"
+    }
+  },
+  {
+    "name": "render-policy",
+    "description": "Two skills for rendering agent output safely: replace innerHTML with render-policy's sanitize-into-a-fragment renderers for plain DOM, React and Angular, with image, link and host policies, streaming and ESLint rules; and lint the CSP and tool metadata an MCP App declares before you publish it.",
+    "version": "0.1.6",
+    "author": {
+      "name": "shteynu",
+      "url": "https://github.com/shteynu"
+    },
+    "homepage": "https://github.com/shteynu/render-policy/tree/main/plugins/render-policy",
+    "repository": "https://github.com/shteynu/render-policy",
+    "license": "MIT",
+    "keywords": [
+      "security",
+      "xss",
+      "markdown",
+      "llm-output",
+      "mcp-apps",
+      "csp"
+    ],
+    "category": "security",
+    "source": {
+      "source": "git-subdir",
+      "url": "https://github.com/shteynu/render-policy.git",
+      "path": "plugins/render-policy",
+      "ref": "main"
+    }
+  },
+  {
+    "name": "skyvern",
+    "description": "Browser automation in Claude Code through Skyvern Cloud: open pages, fill forms, extract structured data, take screenshots, and run repeatable workflows. Sign in with OAuth from /mcp. Runs can use Skyvern credits.",
+    "version": "1.0.0",
+    "author": {
+      "name": "Skyvern",
+      "url": "https://www.skyvern.com"
+    },
+    "homepage": "https://www.skyvern.com",
+    "repository": "https://github.com/Skyvern-AI/skyvern",
+    "license": "Apache-2.0",
+    "keywords": [
+      "browser-automation",
+      "web-automation",
+      "web-scraping",
+      "data-extraction",
+      "form-filling",
+      "cloud-browser",
+      "workflows",
+      "mcp",
+      "oauth"
+    ],
+    "category": "automation",
+    "source": "./plugins/skyvern"
+  },
+  {
+    "name": "datacircle",
+    "description": "Datacircle is a data co-op. Query your favorite B2B data APIs through us. Same request, same price, no markup. Right now we have 3 live LinkedIn profile APIs that we trust: Up2Data, HarvestAPI and Fetchin.",
+    "version": "1.0.0",
+    "author": {
+      "name": "Datacircle",
+      "url": "https://datacircle.dev"
+    },
+    "homepage": "https://docs.datacircle.dev/mcp-server",
+    "license": "MIT",
+    "keywords": [
+      "b2b-data",
+      "data-enrichment",
+      "linkedin",
+      "lead-generation",
+      "sales-intelligence",
+      "mcp",
+      "oauth"
+    ],
+    "category": "sales-marketing",
+    "source": "./plugins/datacircle"
+  },
+  {
+    "name": "baizhi-agent-toolkit",
+    "version": "0.1.0",
+    "description": "Connect Baizhi Agent Toolkit through an authenticated remote MCP server, with an optional skill for bounded research and source verification. Requires a Baizhi account and API key; service usage may incur charges.",
+    "author": {
+      "name": "ct-jaryn",
+      "url": "https://github.com/ct-jaryn"
+    },
+    "homepage": "https://agent-toolkit.app.baizhi.cloud",
+    "repository": "https://github.com/davepoon/buildwithclaude",
+    "license": "MIT",
+    "keywords": [
+      "mcp",
+      "baizhi",
+      "research",
+      "search"
+    ],
+    "category": "mcp-servers",
+    "source": "./plugins/baizhi-agent-toolkit"
+  },
+  {
+    "name": "cc-aws-keepalive",
+    "description": "Keeps Claude Code sessions on AWS Bedrock alive through credential expiry. Scripts for awsCredentialExport and awsAuthRefresh, added to settings.json by hand, read fresh credentials from ~/.aws/credentials and can re-run your login. A UserPromptSubmit hook warns when expiry is near or past. Works with saml2aws, gimme-aws-creds, aws-google-auth and any tool that writes to ~/.aws/credentials.",
+    "version": "0.5.1",
+    "author": {
+      "name": "GeiserX",
+      "url": "https://github.com/GeiserX"
+    },
+    "homepage": "https://github.com/GeiserX/cc-aws-keepalive",
+    "repository": "https://github.com/GeiserX/cc-aws-keepalive",
+    "license": "GPL-3.0-or-later",
+    "keywords": [
+      "aws",
+      "bedrock",
+      "credentials",
+      "sso",
+      "saml",
+      "keepalive"
+    ],
+    "category": "productivity",
+    "source": {
+      "source": "github",
+      "repo": "GeiserX/cc-aws-keepalive"
+    }
+  },
+  {
+    "name": "ultramod",
+    "description": "All-in-one mod pack for Claude Code: a usage limits and context HUD, a guard with undo for rm -rf and git reset --hard, .env and secret protection, and a receipt for every turn. Ten mods in one plugin; needs Claude Code 2.1.287 or later.",
+    "version": "1.0.11",
+    "author": {
+      "name": "Mert Kaya",
+      "url": "https://github.com/mertkayacs"
+    },
+    "homepage": "https://ultramod.mertkayacs.com",
+    "repository": "https://github.com/mertkayacs/ultramod",
+    "license": "MIT",
+    "keywords": [
+      "claude-code",
+      "mods",
+      "hooks",
+      "context",
+      "usage-limits",
+      "guardrails",
+      "secrets"
+    ],
+    "category": "monitoring",
+    "source": {
+      "source": "git-subdir",
+      "url": "https://github.com/mertkayacs/ultramod.git",
+      "path": "plugin",
+      "ref": "v1.0.11"
+    }
+  },
+  {
+    "name": "reevesagents",
+    "description": "Lets Claude Code start other AI coding CLIs (Claude Code, Codex, Kimi, Qwen, OpenCode) in their own tmux windows, send them prompts, read their output and stop them, through the reevesagents MCP server. Ships one skill and the MCP config; needs the reevesagents npm package and tmux.",
+    "version": "1.0.1",
+    "author": {
+      "name": "Mert Kaya",
+      "url": "https://github.com/mertkayacs"
+    },
+    "homepage": "https://reevesagents.mertkayacs.com",
+    "repository": "https://github.com/mertkayacs/reevesagents-skill",
+    "license": "Apache-2.0",
+    "keywords": [
+      "agents",
+      "multi-agent",
+      "orchestration",
+      "mcp",
+      "tmux",
+      "codex",
+      "kimi",
+      "opencode"
+    ],
+    "category": "orchestration",
+    "source": {
+      "source": "github",
+      "repo": "mertkayacs/reevesagents-skill",
+      "ref": "v1.0.1"
+    }
+  },
+  {
+    "name": "convika",
+    "description": "Publish a page Claude wrote, or an HTML file in your repo, at a convika.com address or on your own domain. Convika keeps signups from the page's form and counts visits, traffic sources, and button clicks. Sign-in is OAuth in the browser, so Claude never holds an API key. The publish-page skill shows a private preview and asks before it publishes.",
+    "version": "1.0.1",
+    "author": {
+      "name": "Convika",
+      "url": "https://convika.com"
+    },
+    "homepage": "https://convika.com",
+    "repository": "https://github.com/tomoyaf/convika-mcp",
+    "license": "MIT",
+    "keywords": [
+      "mcp",
+      "landing-page",
+      "hosting",
+      "forms",
+      "analytics",
+      "oauth"
+    ],
+    "category": "sales-marketing",
+    "source": {
+      "source": "git-subdir",
+      "url": "https://github.com/tomoyaf/convika-mcp.git",
+      "path": "plugins/convika",
+      "ref": "convika--v1.0.1"
+    }
+  },
+  {
     "name": "korean-law",
-    "description": "Search and read Korean law through the official Ministry of Government Legislation (법제처) Open API: statutes, precedents, administrative rules, local ordinances, treaties and legal interpretations. Also checks legal citations in Claude's answers against the source for existence and content. Runs the korean-law-mcp MCP server via npx and needs a free 법제처 API key (LAW_OC), entered at install.",
+    "description": "Search and read Korean law through the official Ministry of Government Legislation (\ubc95\uc81c\ucc98) Open API: statutes, precedents, administrative rules, local ordinances, treaties and legal interpretations. Also checks legal citations in Claude's answers against the source for existence and content. Runs the korean-law-mcp MCP server via npx and needs a free \ubc95\uc81c\ucc98 API key (LAW_OC), entered at install.",
     "version": "4.15.6",
     "author": {
       "name": "Chris",
